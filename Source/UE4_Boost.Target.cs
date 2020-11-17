@@ -5,21 +5,10 @@ using System.Collections.Generic;
 
 public class UE4_BoostTarget : TargetRules
 {
-	public UE4_BoostTarget(TargetInfo Target)
+	public UE4_BoostTarget(TargetInfo Target):base(Target)
 	{
 		Type = TargetType.Game;
+		ExtraModuleNames.AddRange( new string[] { "UE4_Boost" } );
 	}
 
-	//
-	// TargetRules interface.
-	//
-
-	public override void SetupBinaries(
-		TargetInfo Target,
-		ref List<UEBuildBinaryConfiguration> OutBuildBinaryConfigurations,
-		ref List<string> OutExtraModuleNames
-		)
-	{
-		OutExtraModuleNames.AddRange( new string[] { "UE4_Boost" } );
-	}
 }
